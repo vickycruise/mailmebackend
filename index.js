@@ -5,6 +5,11 @@ import { Server } from 'socket.io';
 
 const app = express();
 const server = http.createServer(app);
+app.use(cors({
+  origin: '*', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  allowedHeaders: ['Content-Type', 'Authorization'], 
+}));
 const io = new Server(server,{
   cors: {
     origin:"*", 
